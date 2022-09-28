@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div>
+        <button id="btn"><a href="{{ url_for('download') }}">去下载</a></button>
+        <button id="btn"><a href="{{ url_for('upload') }}">去上传</a></button>
+    </div>
+{#    <div class="">#}
+{#        <form class="form-inline mb-2" id="info-form">#}
+{#            <div class="form-group">#}
+{#                <label for="server" class="sr-only">SERVER</label>#}
+{#                <input type="text" class="form-control" id="server"#}
+{#                       name="server"#}
+{#                       placeholder="http://127.0.0.1:8000">#}
+{#            </div>#}
+{#            <div class="form-group">#}
+{#                <label for="options">FILE</label>#}
+{#                <select id="options" class="form-control"#}
+{#                        name="filename">#}
+{#                    <option selected disabled>Choose...</option>#}
+{#                    {% for fileName in filesName %}#}
+{#                        <option value="{{ fileName }}">{{ fileName }}</option>#}
+{#                    {% endfor %}#}
+{#                </select>#}
+{#            </div>#}
+{#            <div>#}
+{#                <button type="submit" class="btn btn-primary mb-2" id="download">下载</button>#}
+{#                <button type="submit" class="btn btn-primary mb-2" id="upload">上传</button>#}
+{#            </div>#}
+{#        </form>#}
+{#    </div>#}
+{##}
+{##}
+{#    <script>#}
+{#    // 下载按钮提交表单#}
+{#    $('#download').click(function () {#}
+{#        var server = $('#server').val();#}
+{#        var filename = $('#options').val();#}
+{##}
+{#        if ( server && filename ) {#}
+{#            $('#info-form').attr('action', server + '/files');#}
+{#            $('#info-form').attr('method', 'post');#}
+{#            $('#info-form').submit();#}
+{#        }#}
+{#    });#}
+{##}
+{#    // 上传按钮提交表单#}
+{#    $('#upload').click(function () {#}
+{#        var server = $('#server').val();#}
+{#        var filename = $('#options').val();#}
+{#        if ( server && filename ) {#}
+{#            $('#info-form').attr('action', server + '/upload');#}
+{#            $('#info-form').attr('method', 'post');#}
+{#            $('#info-form').submit();#}
+{#        }#}
+{#    });#}
+{##}
+{##}
+{#    </script>#}
+{% endblock %}

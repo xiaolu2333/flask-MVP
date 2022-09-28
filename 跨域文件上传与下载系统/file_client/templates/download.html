@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="">
+        <form class="form-inline mb-2" id="info-form">
+            <div class="form-group">
+                <label for="server">SERVER:</label>
+                <input type="text" class="form-control" id="server"
+                       name="server"
+                       placeholder="http://172.28.79.101:8000"
+                       value="http://172.28.79.101:8000"
+                >
+            </div>
+            <div class="form-group">
+                <label for="options">FILE:</label>
+                <select id="options" class="form-control"
+                        name="filename">
+                    <option selected disabled>Choose...</option>
+                    {% for fileName in filesName %}
+                        <option value="{{ fileName }}">{{ fileName }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary mb-2" id="download">下载</button>
+            </div>
+        </form>
+    </div>
+
+
+    <script>
+        // 下载按钮提交表单
+        $('#download').click(function () {
+            var server = $('#server').val();
+            var filename = $('#options').val();
+
+            if (server && filename) {
+                // 提交表单
+                $('#info-form').attr('action', server + '/files');  // 设置表单提交地址
+                $('#info-form').attr('method', 'post');
+                $('#info-form').submit();
+
+                {#// 提交ajax请求#}
+                {#$.ajax({#}
+                {#    url: server + '/files',#}
+                {#    type: 'post',#}
+                {#    data: {#}
+                {#        filename: filename#}
+                {#    },#}
+                {#    success: function (data) {#}
+                {#        console.log(data);#}
+                {#    },#}
+                {#、});#}
+            }
+        });
+    </script>
+{% endblock %}
